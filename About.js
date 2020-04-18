@@ -1,10 +1,11 @@
 import React from 'react';
 
-function About() {
+function Products() {
   return (
-    <h2>About
-    </h2>
+    <ul>
+      <li></li>
+    </ul>
   );
 }
 
-export default About;
+export default Products;
