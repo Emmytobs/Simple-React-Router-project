@@ -13,7 +13,7 @@ return  (
         <label>Product Name:</label>
         <input value={props.state.productName} onChange={props.handleChange} name="product-field" />
         {/* Show a validation message when the user tries to add product without first entering any product name */}
-        <h2> {props.state.err} </h2>
+        {props.state.err && <h2> {props.state.err} </h2>}
         <button>Add Product</button> 
       </form>
     </>
@@ -33,15 +33,16 @@ function App() {
   
   const addProduct = (e) => {
     e.preventDefault();
-    if (!state.productName) {
+    if (state.productName === '') {
       setState({ ...state, err: 'Please enter the name of the product'});
-      // alert('Enter a Product name')
+      return;
     }
     setState({
       ...state,
-      productList: [ ...state.productList, {name: state.productName} ]
+      err: '',
+      productName: '',
+      productList: [ ...state.productList, {name: state.productName}]
     })
-    setState({ ...state, productName: ''})
 
   }
 

@@ -11,9 +11,9 @@ function Products(props) {
 
   return (
     
-    <ul>
+      <ul>
       {props.state.productList.map(product => <li>{product.name}</li>)}
-    </ul>
+      </ul>
   );
 }
 
